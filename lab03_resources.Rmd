@@ -1,0 +1,109 @@
+---
+title: 'Stats 250: Lab 3 Resources'
+author: "Instructional Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Learning Objectives
+1. Compute probabilities from a normal distribution
+2. Compute values that correspond to percentiles of a normal distribution
+3. Review functions covered to date
+
+
+***
+
+
+## Coding Examples
+
+With your first MWrite assignment underway, today's lab tutorial will be on the shorter side. We will cover two functions that will help you work with the normal distribution. 
+
+
+### Finding Probabilities from Values
+
+We can use the `pnorm()` function to calculate probabilities from a normal distribution. This function has four arguments that we'll utilize:
+
+- `q`: the bound (or threshold) of interest
+- `mean`: the mean of the distribution
+- `sd`: the standard deviation of the distribution
+- `lower.tail`: TRUE shades to the left, FALSE shades to the right
+
+In sticking with our bird-themed data/examples, suppose the distribution of wingspans for adult male bald eagles is normally distributed with a mean of 82 inches and a standard deviation of 3 inches. 
+
+What is the probability that an adult male bald eagle selected at random has a wingspan *over* 84 inches (7 feet)? We would use the following code to find out!
+
+```{r pnorm_example1}
+pnorm(q = 84, mean = 82, sd = 3, lower.tail = FALSE)
+```
+
+What about the probability that a randomly selected adult male bald eagle has a wingspan of *at most* 76 inches? 
+
+```{r pnorm_example2}
+pnorm(q = 76, mean = 82, sd = 3, lower.tail = TRUE)
+```
+
+**Demo #1**: Suppose the distribution of wingspans for peregrine falcons (the fastest animal on the planet!) is normally distributed with a mean of 41 inches and a standard deviation of 2 inches. What is the probability that a randomly selected peregrine falcon has a wingspan of at least 44 inches?
+
+```{r demo1, error = T}
+# Replace this text with your code
+
+```
+
+We can also compute these probabilities using our Shiny App (linked on our Canvas homepage)! Let's confirm the result of Demo #1 together using this helpful app.
+
+
+
+### Finding Values from Percentiles
+
+We can use the `qnorm()` function to find the percentiles that correspond to the normal distribution. This function has *almost* the same four arguments as `pnorm()`:
+
+- `p`: the percentile of interest
+- `mean`: the mean of the distribution
+- `sd`: the standard deviation of the distribution
+- `lower.tail`: TRUE probability to the left, FALSE probability to the right
+
+The distribution of wingspans for adult male bald eagles is normally distributed with a mean of 82 inches and a standard deviation of 3 inches. 
+
+An adult male bald eagle would need a wingspan of at least how long to be considered in the longest 10% of adult male bald eagles? The top 10% corresponds to the 90th percentile of the distribution -- so we could use the following code:
+
+```{r qnorm_example1a}
+qnorm(p = 0.90, mean = 82, sd = 3, lower.tail = TRUE)
+```
+
+Or we could use 10% for `p`, but change `lower.tail` to `FALSE` (meaning we want the value that corresponds to the *top* 10%). 
+
+```{r qnorm_example1b}
+qnorm(p = 0.10, mean = 82, sd = 3, lower.tail = FALSE)
+```
+
+**Demo #2**: Verify the wingspan above using the Shiny App. Using a mean of 82 and standard deviation of 3, switch the probability form to "P(X > c)". Your lower bound should be the result of the previous code chunk. What do you get for the corresponding probability?
+
+*Answer:* Replace this text with your answer.
+
+
+In summary, these two functions are used for the following:
+
+- `pnorm()`: when you have a value of interest and want to find the corresponding probability (or percent of observations above/below this value)
+- `qnorm()`: when you have a percentile (top/bottom X%) and want to find the corresponding value (in the units of the variable of interest)
+
+
+
+### Function Reference Document
+
+We have covered quite a few functions already this semester! Many of these will come in handy as you complete the supplement for your first MWrite assignment. Instead of toggling between the various lab documents, we have created a review document for you on Canvas that you can reference throughout the semester! We highly recommend that you head to **UPDATE** and download this html file. 
+
+
+
+That's all we have for Lab 3! What questions do you have?
+
+Now, click on the file titled `mwrite1_supplement.Rmd` in the bottom right window to open up the assignment for today.

@@ -1,0 +1,191 @@
+---
+title: 'Stats 250: MWrite 1 Supplement'
+author: "Instructional Team"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Instructions
+
+Instead of a lab assignment this week, you will be completing your analysis for the first MWrite assignment. Each of the 10 questions will be graded out of 5 points (for a total of 50 points). These questions will be graded for *correctness*. Upon completion, follow the submission instructions at the bottom of this document. We strongly encourage you to work on this assignment with a partner, but everyone must submit their own document to Canvas. 
+
+
+***
+
+
+### Background
+
+In the United States, individuals with developmental disabilities typically receive services and support from state governments. The State of California allocates funds to developmentally-disabled residents through the California Department of Developmental Services (DDS); individuals receiving DDS funds are referred to as "consumers". 
+
+One of the responsibilities of DDS is to allocate funds that support over 250,000 developmentally-disabled residents (referred to by the program as “consumers”). A team of researchers examined the mean annual expenditure on consumers by ethnicity and found that the mean annual expenditures for Hispanic consumers was approximately one-third of the mean expenditures of White non-Hispanic consumers. This striking discrepancy prompted allegations of race-based discrimination against the California DDS. These allegations resulted in a formal suit being filed against the state of California, claiming that its DDS program was guilty of race-based discrimination.
+
+The data set `dds` represents a sample of roughly 780 DDS consumers (out of a total population of approximately 250,000), and includes information about age, gender, ethnicity, and the amount of financial support per consumer provided by the DDS. 
+
+- `id`: ID number of consumer
+- `age.cohort`: age group of consumer (0-5, 6-12, 13-17, etc.)
+- `age`: age of consumer (in years)
+- `gender`: gender of consumer (Female or Male)
+- `expenditures`: amount of services and support (in dollars) provided by the DDS
+- `ethnicity`: ethnicity of consumer (Hispanic or White not Hispanic)
+
+Use the following code chunk to read in the data set. 
+
+```{r read_data}
+load("dds.rda")
+```
+
+And be sure to load in the required packages!
+
+```{r load_package}
+library(ggplot2)
+```
+
+
+***
+
+
+### Exercises
+
+After reading in the data set above, complete the following lab exercise. Remember, these exercises are worth 5 points each and are graded for correctness.
+
+> **1.** First, identify the variable type for the five variables (ordinal, nominal, continuous, or discrete). Then, identify which variable is acting as the response variable.
+
+*Answer:* The variable types can be found below:
+
+- `age.cohort`: Replace this text with your answer
+- `age`: Replace this text with your answer
+- `gender`: Replace this text with your answer
+- `expenditures`: Replace this text with your answer
+- `ethnicity`: Replace this text with your answer
+
+*Answer:* The variable acting as the response variable is: Replace this text with your answer
+
+
+
+> **2.** The variable `expenditures` records the annual amount of services and support (measured in US dollars) an individual received from the California DDS. In the first code chunk below, calculate the mean and the five number summary for the variable `expenditures`. In the second code chunk, create a histogram of the variable using `ggplot()`. Be sure to include an appropriate plot title and appropriate axis labels. In 1 - 2 sentences, comment on at least one interesting attribute that stands out to you.
+
+```{r exercise2_numerical_summaries, error = T}
+# Replace this text with your code
+
+```
+
+```{r exercise2_histogram, error = T}
+# Replace this text with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **3.** The researchers who collected this data argued Hispanic recipients received significantly less support than White not Hispanic recipients. Create a frequency table that summarizes the number of recipients that fell into each category for the variable `ethnicity`. 
+
+```{r exercise3, error = T}
+# Replace this text with your code
+
+```
+
+
+
+> **4.** How does the amount of support received differ between "Hispanic" and "White not Hispanic" program recipients? Using, `ggplot()` create side-by-side boxplots of expenditures plotted by ethnicity. In 1 - 2 sentences, answer the following question: *Do these boxplots appear to confirm or contradict the claim that a recipient’s ethnicity is associated with the amount of money the state of California spends on their DDS services and support?*   
+
+```{r exercise4, error = T}
+# Replace this text with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **5.** Use the `aggregate()` and `summary()` functions to compute the mean and five-number summary of expedenditures grouped by ethnicity. Remember, the output will not display in your R Markdown document, but it will show up in the knitted html file. Then, compute the difference in the two mean expenditures (White non Hispance minus Hispanic). You may use R or a calculator to compute this value. Report the difference in the two means below.
+
+```{r exercise5, error = T}
+# Replace this text with your code
+
+```
+
+*Answer:* Replace this text with the difference in the means. 
+
+
+
+> **6.** The variable `age.cohort` assigns recipients to one of six age groups. These cohorts are indicative of particular life phases. In the first three cohorts, recipients are still living with their parents as they move through preschool age, elementary / middle school age, and high school age. In the 18-21 cohort, recipients are transitioning from their parents’ homes to living on their own or in supportive group homes. From ages 22 – 50, individuals are mostly no longer living with their parents but may still receive some support from family. In the 51+ cohort, recipients often have no living parents and typically require the most financial support from DDS. In the first code chunk below, create a bar chart of the variable `age.cohort` using `ggplot()`. Be sure to include an appropriate plot title and appropriate axis labels. In the second code chunk, create a frequency table for the variable. 
+
+```{r exercise6_bar_chart, error = T}
+# Replace this text with your code
+
+``` 
+
+```{r exercise6_table, error = T}
+# Replace this text with your code
+
+``` 
+
+
+
+> **7.** Using, `ggplot()` create side-by-side boxplots of expenditures plotted by `age.cohort`. Be sure to include an appropriate plot title and appropriate axis labels. In 1 - 2 sentences, answer the following question: *Does a recipient’s age group appear to be associated with the amount of money the state of California spends on their DDS services and support?* 
+
+```{r exercise7, error = T}
+# Replace this text with your code
+
+``` 
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **8.** Use the `aggregate()` and `summary()` functions to compute the mean and five-number summary of expedenditures grouped by age cohort. Remember, the output will not display in your R Markdown document, but it will show up in the knitted html file.
+
+```{r exercise8, error = T}
+# Replace this text with your code
+
+```
+
+
+
+> **9.** In the first code chunk below, create a stacked bar chart of ethnicity and age cohort. Be sure to include an appropriate plot title and appropriate axis labels. Note: we recommend using `age.cohort` as your `x` variable in the plot. In the second code chunk, create a two-way frequency table for the two variables.
+
+```{r exercise9_stacked_bar_chart, error = T}
+# Replace this text with your code
+
+```
+
+```{r exercise9_table, error = T}
+# Replace this text with your code
+
+```
+
+
+
+> **10.** In 2 - 3 sentences, answer the following question: *Do the relationships between age cohort, ethnicity, and expenditures appear to be confounded?* Justify your position by citing patterns in the plots you made throughout the previous exercises, along with any other evidence you believe to be relevant to your decision.  
+
+*Answer:* Replace this text with your answer. 
+
+
+
+***
+
+
+### Submission Instructions
+
+Once you have finished, follow the instructions below to submit your work.
+
+1. At the top of the document, update the `author` field. Do not change anything else at the top of the document.
+
+2. Click the Knit button to create an HTML file of your work.
+
+3. In the Files pane (bottom right window), check the box next to `mwrite1supplement.html`.
+
+4. In the Files pane, click on the gear icon (More) and select "Export..."  
+
+5. Do not change the file name (`mwrite1supplement.html`). Click Download and save the file to your computer. 
+
+6. On the Stats 250 Canvas site, navigate to the MWrite #1 Supplement Work assignment. 
+
+7. Upload your saved `mwrite1supplement.html` file. 
+
+8. Click "Submit Assignment". Congratulations, you are done with the fist part of MWrite #1! Note: there will be no file submission for the Lab 2 assignment on Canvas.
